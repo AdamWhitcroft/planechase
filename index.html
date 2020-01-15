@@ -1,0 +1,113 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <script>
+        var imagesArray = [
+        'img/ohop-1-academy-at-tolaria-west.png',
+        'img/ohop-2-the-aether-flues.png',
+        'img/ohop-3-agyrem.png',
+        'img/ohop-4-bant.png',
+        'img/ohop-5-cliffside-market.png',
+        'img/ohop-6-the-dark-barony.png',
+        'img/ohop-7-eloren-wilds.png',
+        'img/ohop-8-the-eon-fog.png',
+        'img/ohop-9-feeding-grounds.png',
+        'img/ohop-10-fields-of-summer.png',
+        'img/ohop-11-the-fourth-sphere.png',
+        'img/ohop-12-glimmervoid-basin.png',
+        'img/ohop-13-goldmeadow.png',
+        'img/ohop-14-the-great-forest.png',
+        'img/ohop-15-grixis.png',
+        'img/ohop-16-the-hippodrome.png',
+        'img/ohop-17-immersturm.png',
+        'img/ohop-18-isle-of-vesuva.png',
+        'img/ohop-19-izzet-steam-maze.png',
+        'img/ohop-20-krosa.png',
+        'img/ohop-21-lethe-lake.png',
+        'img/ohop-22-llanowar.png',
+        'img/ohop-23-the-maelstrom.png',
+        'img/ohop-24-minamo.png',
+        'img/ohop-25-murasa.png',
+        'img/ohop-26-naar-isle.png',
+        'img/ohop-27-naya.png',
+        'img/ohop-28-otaria.png',
+        'img/ohop-29-panopticon.png',
+        'img/ohop-30-pools-of-becoming.png',
+        'img/ohop-31-raven-s-run.png',
+        'img/ohop-32-sanctum-of-serra.png',
+        'img/ohop-33-sea-of-sand.png',
+        'img/ohop-34-shiv.png',
+        'img/ohop-36-sokenzan.png',
+        'img/ohop-37-stronghold-furnace.png',
+        'img/ohop-38-turri-island.png',
+        'img/ohop-39-undercity-reaches.png',
+        'img/ohop-40-velis-vel.png',
+        ];
+
+        var usedImages = {};
+        var usedImagesCount = 0;
+
+        function displayImage(){
+
+            var num = Math.floor(Math.random() * (imagesArray.length));
+            if (!usedImages[num]){
+                var plane = document.getElementById("plane");
+                plane.src = imagesArray[num];
+                usedImages[num] = true;
+                usedImagesCount++;
+                if (usedImagesCount === imagesArray.length){
+                    usedImagesCount = 0;
+                    usedImages = {};
+                }
+            } else {
+                displayImage();
+            }
+        }
+        </script>
+    </head>
+    <body onload="displayImage()">
+        <div class="wrapper">
+            <div class="inner">
+                <img src="" id="plane" onclick="displayImage()"/>
+            </div>
+        </div>
+    </body>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            font-family: 'Roboto', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            user-select: none;
+            color: white;
+        }
+        html, body {
+            height: 100%;
+        }
+        .wrapper {
+            margin: 0 auto;
+            height: 100%;
+            text-align: center;
+        }
+        .wrapper .inner {
+            padding: 5vh;
+        }
+        .wrapper img {
+            max-width: 100%;
+            height: auto;
+            max-height: 90vh;
+        }
+        #plane-next {
+            display: block;
+            width: 4em;
+            height: 4em;
+            background: red;
+            position: absolute;
+        }
+    </style>
+</html>
