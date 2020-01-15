@@ -52,8 +52,12 @@
 
             var num = Math.floor(Math.random() * (imagesArray.length));
             if (!usedImages[num]){
-                var plane = document.getElementById("plane");
-                plane.src = imagesArray[num];
+
+                document.getElementById("plane").src = imagesArray[num];
+                // document.body.style.backgroundImage = "url(" + imagesArray[num] + ")";
+                document.getElementById("wrap").style.backgroundImage = "url(" + imagesArray[num] + ")";
+
+                console.log(imagesArray[num]);
                 usedImages[num] = true;
                 usedImagesCount++;
                 if (usedImagesCount === imagesArray.length){
@@ -72,6 +76,7 @@
                 <img src="" id="plane" onclick="displayImage()"/>
             </div>
         </div>
+        <div id="wrap"></div>
     </body>
     <style>
         * {
@@ -85,9 +90,13 @@
             -moz-osx-font-smoothing: grayscale;
             user-select: none;
             color: white;
+            background: black;
         }
         html, body {
             height: 100%;
+        }
+        body {
+            overflow: hidden;
         }
         .wrapper {
             margin: 0 auto;
@@ -108,6 +117,19 @@
             height: 4em;
             background: red;
             position: absolute;
+        }
+        #wrap {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            z-index: -1;
+            -webkit-filter: blur(10px);
+            -webkit-opacity: .2;
         }
     </style>
 </html>
