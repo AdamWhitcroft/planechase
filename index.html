@@ -72,9 +72,7 @@
     </head>
     <body onload="displayImage()">
         <div class="wrapper">
-            <div class="inner">
-                <img src="" id="plane" onclick="displayImage()"/>
-            </div>
+            <img src="" id="plane" onclick="displayImage()"/>
         </div>
         <div id="wrap"></div>
     </body>
@@ -86,8 +84,6 @@
 
         html {
             font-family: 'Roboto', sans-serif;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
             user-select: none;
             color: white;
             background: black;
@@ -95,28 +91,21 @@
         html, body {
             height: 100%;
         }
-        body {
-            overflow: hidden;
-        }
         .wrapper {
-            margin: 0 auto;
-            height: 100%;
-            text-align: center;
-        }
-        .wrapper .inner {
-            padding: 5vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            max-width: 100%;
+            height: calc(100% - 80px);
+            padding: 40px;
         }
         .wrapper img {
-            max-width: 100%;
-            height: auto;
-            max-height: 90vh;
-        }
-        #plane-next {
             display: block;
-            width: 4em;
-            height: 4em;
-            background: red;
-            position: absolute;
+            max-width: 100%;
+            max-height: 100%;
+            -webkit-mask: url('mask.png') center center;
+            -webkit-mask-size: 100% 100%;
+            -webkit-mask-repeat: no-repeat;
         }
         #wrap {
             position: absolute;
